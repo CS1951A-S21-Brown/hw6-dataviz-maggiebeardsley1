@@ -2,27 +2,53 @@
 <html lang="en">
 <head>
         <meta charset="utf-8">
-        <title>Assignment 6 &laquo; Data Visualization Dashboard&raquo;</title>
+        <title>Football Analysis</title>
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="main.css"/>
-        <!--Feel free to add more CSS files as needed-->
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
     </head>
 <body>
     <div class="header">
-        <h3>Assignment 6 &laquo; Data Visualization Dashboard &raquo;</h3>
+        <h3>Football Analysis</h3>
     </div>
-    <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
         <div class="col-lg-6">
             <div id="graph1"></div>
             <div id="graph2"></div><br/>
         </div>
         <div class="col-lg-6">
+            <button type="button" class="btn btn-info" onclick="setData('2014', 0)">2014 World Cup Winning %</button>
+            <button type="button" class="btn btn-info" onclick="setData('2018', 0)">2018 World Cup Winning %</button>
+            <button type="button" class="btn btn-info" onclick="setData('2014', 2)">2014 World Cup Big Win %</button>
+            <button type="button" class="btn btn-info" onclick="setData('2018', 2)">2018 World Cup Big Win %</button>
+            <p style="text-align:center;">Note that a big win is defined as a game won by more than 2 goals.</p>
             <div id="graph3"></div>
         </div>
+        <div>
+            <p style="margin-left:5em; margin-right:5em; margin-top:50em;">
+                    My first graph shows the  number of football games by year. For each of the five years I show, I have a bar displaying the number of football games corresponding to that year. 
+    
+                    My second graph displays winning percentage for the top 10 nations. The size of the circle corresponds to the winning percentage, where a bigger circle represents a larger percentage of games won. Additionally, the colors are darker for higher winning percentage and lighter for lower winning percentage. By hovering over a circle you can see the exact winning percentage. 
+    
+                    The third graph shows which teams have been highest performing in the 2014 and 2018 world cups by showing winning percentage as bars. The viewer can choose to view "big win percentage" as well, which is the percentage of games won by at least 2 goals. This can be useful for understanding the strength of the team. 
+                </p>
+                <p style="margin-left:5em; margin-right:5em;">
+                    D3 was helpful and improved my visualization because there are a lot of options for types of graphs that can be built, and there is a lot of flexibility for how exactly I choose to build those types of graphs. A third reason D3 was helpful is because there are a lot of examples on the D3 website that can be used for inspiration. 
+                </p>
+                <p style="margin-left:5em; margin-right:5em;">
+                        D3 was not the best tool because it seems like it is way more difficult than it should be. Especially for a simple bar graph! Additionally, it is time consuming to build graphs in D3, I don't think my dashboard really should have needed > 300 lines of code to build. A third reason why D3 might not be the best tool is it seems like one of the best parts of D3 is some of the really crazy and complicated visualizations that can be built, but oftentimes these are not the best way to portray the information to an audience. 
+                </p>
+                <p style="margin-left:5em; margin-right:5em;">
+                    Something I think I did well in terms of accessibility is many of my graphs still portray the necessary information to colorblind people. For example, the bar graphs embed the same information as the color in the length of the bar, and the circle color information is portrayed in the size of the circle. So colorblind people would find this dashboard accessible. Someone who might have more difficulty viewing my dashboard would be blind people. The Schepers reading talked about the importance of making graphs compatible with screen readers, but I don't think I have a good enough understanding of how screen readers work to configure my alt text properly. 
+                </p>
+                <p style="margin-left:5em; margin-right:5em;">
+                    I could have included a link to the raw data in my dashboard however since its on the assignment page anyone looking at my assignment could view it there. Others factors that kept me from taking additional accessibility steps are a lack of understanding of the necessary accommodations and a lack of time. 
+                </p>
+        </div>
     </div>
-    <!--Feel free to add more JavaScript files as needed-->
+    <script type="text/javascript">
+        const margin = {top: 40, right: 100, bottom: 40, left: 200};
+    </script>
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
