@@ -202,21 +202,19 @@ d3.csv("../data/football.csv").then(function(data) {
         .text("Winning Percentage for Top 10 Teams");
 
     //add circles and text
-    let items = svg2.selectAll("circle").data(winning_data);
+    let circles = svg2.selectAll("circle").data(winning_data);
     let info = svg2.selectAll("text").data(winning_data);
     let color = d3.scaleOrdinal()
         .range(d3.quantize(d3.interpolateHcl("#fa80d3", "#fee2f5"), 10));
     for (let i=0; i < winning_data.length; i++) {
-        items.enter()
+        circles.enter()
             .append("circle")
-            .merge(items)
             .attr("fill", function(d) { return color(winning_data[i][0]) })
             .attr("r",  winning_data[i][1] * 70) 
             .attr("transform", `translate(${placementIndices[i][0]}, ${placementIndices[i][1]})`)
 
             //functions for tooltip
             .on("mouseover", mouseOver)
-            .on("mousemove", mouseMove)
             .on("mouseleave", mouseLeave)
         //circle labels
         info.enter().append("text")
@@ -227,9 +225,7 @@ d3.csv("../data/football.csv").then(function(data) {
     function mouseOver(d) {
         //set opacity to 1 so that tooltip for that circle is visible
         tooltip.style("opacity", 1);
-    }
-
-    function mouseMove(d) {
+        
         let percent = 0
         let country = ""
         let x_offset = 190
@@ -242,7 +238,7 @@ d3.csv("../data/football.csv").then(function(data) {
                 percent = winning_data[i][1]
             }
         }
-        //display appropriate text for that circel
+        //display appropriate text for that circle
         let html = `Winning Percentage of ${country} is ${percent}`
         tooltip.html(html)
             .style("left", placementIndices[0][0]+ 260 + "px")
